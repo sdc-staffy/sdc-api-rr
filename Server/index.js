@@ -70,4 +70,8 @@ app.put('/reviews/:review_id/report', (req, res) => {
   console.log('report review route:', difference, "ms" )
 });
 
+app.get('loaderio-2a401cd0e34d94166699036c58b6df18', (req, res) => {
+  res.send('loaderio-2a401cd0e34d94166699036c58b6df18')
+})
+
 module.exports = app;
