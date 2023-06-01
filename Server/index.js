@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 //const logger = require('./logger');
 const dbQuery = require('./dbFiles/dbRoutes.js')
+const { performance } = require('perf_hooks');
 
 
 const app = express()
@@ -13,15 +14,15 @@ app.use(express.json());
 
 
 app.get('/reviews', (req, res) => {
-  var start = performance.now();
+  //var start = performance.now();
   const product_id = Number.parseInt(req.query.product_id);
   //const count = req.query.count ? req.query.count : null;
   //const count = req.query.count || 5;
 
   dbQuery.getReviews(product_id)
     .then((data) => res.send(data));
-  var end = performance.now();
-  console.log('getReviews route:', Math.floor(end-start), "ms" )
+ // var end = performance.now();
+  //console.log('getReviews route:', Math.floor(end-start), "ms" )
 
 });
 
