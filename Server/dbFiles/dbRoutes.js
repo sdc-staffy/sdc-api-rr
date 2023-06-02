@@ -10,8 +10,8 @@ const getReviews = (product_id) => {
       var reviews = {};
       reviews.product = product_id;
       var resultsArr = [];
-      response.rows.forEach((reviewObj) => {
-        var newObj = {
+      reviews.results = response.rows.map(function(reviewObj) {
+        return {
           review_id: reviewObj.review_id.toString(),
           rating: reviewObj.rating,
           summary: reviewObj.summary,
@@ -22,9 +22,7 @@ const getReviews = (product_id) => {
           reviewer_name: reviewObj.reviewer_name,
           helpfulness: reviewObj.helpfulness
         }
-        resultsArr.push(newObj);
-      })
-      reviews.results = resultsArr;
+        });
       return reviews;
     })
     .catch((err) => console.log('error getting reviews'));
