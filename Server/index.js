@@ -23,7 +23,7 @@ app.get('/reviews', (req, res) => {
     .then((data) => res.send(data))
     .catch((err)=> {
       console.log('error getting reviews')
-      res.send(err)
+      res.send('error in getReviews', err)
     });
 
 
