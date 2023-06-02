@@ -9,8 +9,10 @@ const db = new Pool({
 });
 
 db.connect()
+  .then(()=> console.log('Connected to PostgreSQL, listening on port 5432'))
+  .catch((err) => console.log('postgres connection error', err));
 
 
-console.log('Connected to PostgreSQL, listening on port 5432');
+
 
 module.exports = db;
