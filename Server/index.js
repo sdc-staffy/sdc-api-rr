@@ -20,7 +20,7 @@ app.get('/reviews', (req, res) => {
   //const count = req.query.count || 5;
 
   dbQuery.getReviews(product_id)
-    .then((data) => res.send(data));
+    .then((data) => res.send(data))
     .catch((err)=> {
       console.log('error getting reviews')
       res.send(err)
