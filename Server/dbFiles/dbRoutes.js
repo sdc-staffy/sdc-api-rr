@@ -4,7 +4,7 @@ const db = require('./db');
 
 
 const getReviews = (product_id) => {
-
+  console.log('get reviews request')
   return db.query(`SELECT * FROM reviews WHERE product_id = ${product_id}`)
     .then((response) => {
       var reviews = {};
