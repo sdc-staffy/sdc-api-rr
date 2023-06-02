@@ -21,6 +21,12 @@ app.get('/reviews', (req, res) => {
 
   dbQuery.getReviews(product_id)
     .then((data) => res.send(data));
+    .catch((err)=> {
+      console.log('error getting reviews')
+      res.send(err)
+    });
+
+
 
 
 });
